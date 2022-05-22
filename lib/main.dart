@@ -5,6 +5,7 @@ import 'package:go_route_riverpod/ui/home_page.dart';
 import 'package:go_route_riverpod/ui/login_page.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'firebase_options.dart';
+import 'package:auto_route/auto_route.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
