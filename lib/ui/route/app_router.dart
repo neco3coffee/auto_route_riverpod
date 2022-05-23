@@ -22,12 +22,12 @@ class AuthGuard extends AutoRouteGuard {
   @override
   void onNavigation(NavigationResolver resolver, StackRouter router) {
     final isAuthenticated = _reader(authControllerProvider) != null;
-    final guardedRoute = resolver.route;
+    // final guardedRoute = resolver.route;
 
     if (isAuthenticated) {
       resolver.next(true);
     } else {
-      router.push(const LoginRoute());
+      router.replaceAll([const LoginRoute()]);
     }
   }
 }

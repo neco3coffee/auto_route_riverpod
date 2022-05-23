@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_route_riverpod/data/auth_controller.dart';
 import 'package:go_route_riverpod/ui/route/app_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
