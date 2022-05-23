@@ -38,6 +38,7 @@ dependencies:
   firebase_auth: ^3.3.18
   hooks_riverpod: ^1.0.4
   auto_route: ^4.0.1
+  flutter_hooks: ^0.18.4
 
 dev_dependencies:
   flutter_test:

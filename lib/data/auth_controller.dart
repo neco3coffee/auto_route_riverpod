@@ -5,16 +5,16 @@ import 'package:go_route_riverpod/data/auth_repository.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final authControllerProvider =
-    StateNotifierProvider<AuthStateNotifier, User?>((ref) {
-  return AuthStateNotifier(ref.read);
+    StateNotifierProvider<AuthController, User?>((ref) {
+  return AuthController(ref.read);
 });
 
-class AuthStateNotifier extends StateNotifier<User?> {
-  Reader _reader;
+class AuthController extends StateNotifier<User?> {
+  final Reader _reader;
 
   StreamSubscription<User?>? _userStreamSubscription;
 
-  AuthStateNotifier(this._reader) : super(null) {
+  AuthController(this._reader) : super(null) {
     _userStreamSubscription?.cancel();
     _userStreamSubscription = _reader(authRepositoryProvider)
         .authStateChange
