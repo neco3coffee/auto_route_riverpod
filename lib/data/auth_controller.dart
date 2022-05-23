@@ -6,7 +6,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final authControllerProvider =
     StateNotifierProvider<AuthController, User?>((ref) {
-  return AuthController(ref.read);
+  return AuthController(ref.read)..appStarted();
 });
 
 class AuthController extends StateNotifier<User?> {
@@ -25,6 +25,13 @@ class AuthController extends StateNotifier<User?> {
   void dispose() {
     _userStreamSubscription?.cancel();
     super.dispose();
+  }
+
+  void appStarted() async {
+    final user = _reader(authRepositoryProvider).getCurrentUser();
+    if (user != null) {
+      state = user;
+    }
   }
 
   void signIn() async {
